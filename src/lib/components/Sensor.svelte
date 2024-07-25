@@ -6,7 +6,7 @@
     export let data: SensorProps;
     export let station: string;
 
-    let reports: SensorReport[] | null = null;
+    let reports: SensorReport[] = [];
 
     async function getReports() {
         const report_url = new URL(`/stations/${station}/sensors/${data.id}/reports`, import.meta.env.VITE_BACKEND_ADDRESS).href
@@ -25,11 +25,7 @@
 <div>
     <p>{data.name}</p>
     {#if data.type === "temperature"}
-        {#if reports === null}
-            <LineChart value="Temperatura [°C]" reports={[]} range={{min: -21, max: 37}}/>
-        {:else}
-            <LineChart value="Temperatura [°C]" reports={reports} range={{min: -21, max: 37}}/>
-        {/if}
+        <LineChart value="Temperatura [°C]" reports={reports} range={{min: -21, max: 37}}/>
     {:else}
         <p>Typ czujnika '{data.type}' nie jest obsługiwany przez stronę.</p>
     {/if}

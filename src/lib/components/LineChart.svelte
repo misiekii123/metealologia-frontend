@@ -8,8 +8,9 @@
     export let reports: SensorReport[];
     export let range: {min: number, max: number};
 
-    let ctx;
     let chartCanvas: HTMLCanvasElement;
+    let ctx: CanvasRenderingContext2D | null = null;
+    let chart: Chart | null = null;
 
     const now = Date.now()
     const monthBefore = new Date(
@@ -18,14 +19,14 @@
         new Date().getDate()
     ).getTime()
 
-    onMount(() => {
+    $: {
+        if (ctx === null) break $;
         const formattedReports = reports.map(report => ({
-            x: new Date(report.timestamp),
+            x: new Date(report.timestamp).getTime(),
             y: report.data.temperature
         }));
-        console.log(formattedReports)
-        ctx = chartCanvas.getContext("2d") as CanvasRenderingContext2D;
-        new Chart(ctx, {
+        if (chart !== null) { chart.destroy() }
+        chart = new Chart(ctx, {
             type: 'line',
             data: {
                 datasets: [{
@@ -57,8 +58,8 @@
                             display: true,
                             text: value
                         },
-                        min: -21,
-                        max: 37
+                        min: range.min,
+                        max: range.max
                     }
                 },
                 plugins: {
@@ -68,7 +69,11 @@
                 }
             }
         });
-    });
+    }
+    onMount(() => {
+        ctx = chartCanvas.getContext("2d") as CanvasRenderingContext2D;
+    })
+
 </script>
 
 <canvas bind:this={chartCanvas} id="sensorChart"></canvas>
