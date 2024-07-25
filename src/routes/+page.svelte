@@ -1,4 +1,6 @@
 <script>
+	import LineChart from "$lib/components/LineChart.svelte";
+
 	export let data;
 </script>
 
