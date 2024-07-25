@@ -17,11 +17,11 @@
 			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
 				<a href="/">Strona główna</a>
 			</li>
-			<li aria-current={$page.url.pathname === '/sensors' ? 'page' : undefined}>
-				<a href="./sensors/">Pogoda</a>
+			<li aria-current={$page.url.pathname === '/stations' ? 'page' : undefined}>
+				<a href="/stations">Pogoda</a>
 			</li>
 			<li aria-current={$page.url.pathname.startsWith('/airship') ? 'page' : undefined}>
-				<a href="airship">Sterowiec</a>
+				<a href="/airship">Sterowiec</a>
 			</li>
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
@@ -43,16 +43,6 @@
 	.corner {
 		width: 3em;
 		height: 3em;
-	}
-
-	.corner p {
-		margin-left: 10px;
-	}
-
-	.corner img {
-		width: 2em;
-		height: 2em;
-		object-fit: contain;
 	}
 
 	nav {

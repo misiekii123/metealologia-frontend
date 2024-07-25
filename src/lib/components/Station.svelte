@@ -6,13 +6,11 @@
 </script>
 
 <div>
-
-<p>id: {data.id}<br>name: {data.name}</p>
-<p>Stations:</p>
-{#each data.sensors as sensor}
-    <Sensor data={sensor} station={data.id} />
-{/each}
-
+    <p>{data.name}</p>
+    <p>Czujniki:</p>
+    {#each data.sensors as sensor}
+        <Sensor data={sensor} station={data.id} />
+    {/each}
 </div>
 
 <style>
