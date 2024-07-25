@@ -1,6 +1,7 @@
 <script lang="ts">
     import type {SensorProps} from "$lib/types";
     import {onMount} from "svelte";
+    import Chart from "$lib/components/Chart.svelte";
 
     export let data: SensorProps;
     export let station: string;
@@ -25,15 +26,30 @@
     {#if reports == null}
         <p>Ładowanie...</p>
     {:else}
-        <p>{JSON.stringify(reports)} ({data.type})</p>
+<!--        <p>{JSON.stringify(reports)} ({data.type})</p>-->
+        <Chart chartData={data} reports={reports} />
     {/if}
 </div>
 
 <style>
     div {
-        border: solid;
-        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         text-align: center;
-        margin: 10px;
+        padding: 2rem;
+        border-radius: 25px;
+    }
+
+    @media (min-width: 500px) {
+        div {
+            min-width: 20rem;
+        }
+    }
+
+    @media (min-width: 1000px) {
+        div {
+            min-width: 25rem;
+        }
     }
 </style>

@@ -11,23 +11,39 @@
     <title>Czujniki</title>
 </svelte:head>
 
-<section>
-    <h1>Stacje pogodowe</h1>
+<h1>Stacje pogodowe</h1>
+<div class="cards">
     {#each data.stations as station}
         <Station data={station}/>
     {/each}
-</section>
+</div>
 
 <style>
-    section {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        flex: 0.6;
-    }
-
     h1 {
         width: 100%;
+    }
+
+    .cards {
+        max-width: 96%;
+        margin: 0 auto;
+        display: grid;
+        grid-gap: 10rem;
+        border-radius: 25px;
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    @media (min-width: 500px) {
+        .cards {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+    @media (min-width: 1000px) {
+        .cards {
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 </style>
