@@ -89,6 +89,9 @@ button:focus:not(:focus-visible) {
 	h1 {
 		font-size: 2.4rem;
 	}
+	h2 {
+		font-size: 1.8rem;
+	}
 }
 
 .visually-hidden {

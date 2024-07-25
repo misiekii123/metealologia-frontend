@@ -23,8 +23,8 @@
                 datasets: [{
                     label: value,
                     data: formattedReports,
-                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
+                    backgroundColor: 'rgba(255,62,0,0.21)',
+                    borderColor: 'rgb(255,62,0)',
                     borderWidth: 1,
                     fill: false
                 }]

@@ -39,6 +39,7 @@
 
 <style>
     div {
+        min-width: 30rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -47,15 +48,18 @@
         border-radius: 25px;
     }
 
-    @media (min-width: 500px) {
-        div {
+    div {
+        @media (min-width: 500px) {
             min-width: 20rem;
         }
-    }
-
-    @media (min-width: 1000px) {
-        div {
+        @media (min-width: 1000px) {
+            min-width: 15rem;
+        }
+        @media (min-width: 1500px) {
             min-width: 25rem;
+        }
+        @media (min-width: 1800px) {
+            min-width: 32rem;
         }
     }
 </style>

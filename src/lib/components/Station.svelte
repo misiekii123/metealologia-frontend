@@ -25,15 +25,18 @@
         background-color: var(--color-bg-2);
     }
 
-    @media (min-width: 500px) {
-        div {
+    div {
+        @media (min-width: 500px) {
+            min-width: 15rem;
+        }
+        @media (min-width: 1000px) {
             min-width: 20rem;
         }
-    }
-
-    @media (min-width: 1000px) {
-        div {
+        @media (min-width: 1500px) {
             min-width: 35rem;
+        }
+        @media (min-width: 1800px) {
+            min-width: 42rem;
         }
     }
 </style>

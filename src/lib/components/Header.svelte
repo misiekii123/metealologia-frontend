@@ -30,7 +30,7 @@
 	</nav>
 
 	<div class="corner">
-		<!--right corner-->
+		<a href="https://github.com/misiekii123/meteALOlogia-website" target="_blank"><img src='{github}' alt="GitHub"/></a>
 	</div>
 </header>
 
