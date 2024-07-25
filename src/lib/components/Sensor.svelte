@@ -4,8 +4,10 @@
     export let data: SensorProps;
     export let station: string;
 
+
     async function getReports() {
-        const response = await fetch(`http://localhost:8080/stations/${station}/sensors/${data.id}/reports`)
+        const report_url = new URL(`/stations/${station}/sensors/${data.id}/reports`, import.meta.env.VITE_BACKEND_ADDRESS).href
+        const response = await fetch(report_url)
         const reports = await response.json();
         return reports;
     }

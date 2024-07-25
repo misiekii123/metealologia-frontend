@@ -1,4 +1,5 @@
 node_modules
+.idea
 
 # Output
 .output
@@ -12,9 +13,10 @@ Thumbs.db
 
 # Env
 .env
-.env.*
+.env.development
 !.env.example
 !.env.test
+!.env.development
 
 # Vite
 vite.config.js.timestamp-*
