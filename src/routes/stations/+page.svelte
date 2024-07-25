@@ -35,6 +35,14 @@
         text-align: center;
     }
 
+    .cards:has(> div:only-child) {
+        justify-items: center;
+        align-items: center;
+        display: flex;
+        width: 100%;
+    }
+
+
     @media (min-width: 500px) {
         .cards {
             grid-template-columns: repeat(1, 1fr);
