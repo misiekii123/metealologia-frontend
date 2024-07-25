@@ -9,8 +9,13 @@
     let reports: SensorReport[] = [];
 
     async function getReports() {
-        const report_url = new URL(`/stations/${station}/sensors/${data.id}/reports`, import.meta.env.VITE_BACKEND_ADDRESS).href
-        // TODO niech fetchuje ostatni miesiąc
+        const now = Date.now()
+        const monthBefore = new Date(
+            new Date().getFullYear(),
+            new Date().getMonth() - 1,
+            new Date().getDate()
+        ).getTime()
+        const report_url = new URL(`/stations/${station}/sensors/${data.id}/reports?after=${monthBefore}&before=${now}`, import.meta.env.VITE_BACKEND_ADDRESS).href
         const response = await fetch(report_url)
         const reports = await response.json();
         return reports;
