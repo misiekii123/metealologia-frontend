@@ -11,9 +11,7 @@ export interface StationProps {
 }
 
 
-export interface Report {
+export interface SensorReport {
     timestamp: string;
-    data: { value: number };
+    data: any;
 }
-
-export interface chartProps extends Array<Report> {}
