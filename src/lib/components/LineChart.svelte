@@ -6,9 +6,17 @@
 
     export let value: string;
     export let reports: SensorReport[];
+    export let range: {min: number, max: number};
 
     let ctx;
     let chartCanvas: HTMLCanvasElement;
+
+    const now = Date.now()
+    const monthBefore = new Date(
+        new Date().getFullYear(),
+        new Date().getMonth() - 1,
+        new Date().getDate()
+    ).getTime()
 
     onMount(() => {
         const formattedReports = reports.map(report => ({
@@ -39,14 +47,18 @@
                         title: {
                             display: true,
                             text: 'Data'
-                        }
+                        },
+                        max: now,
+                        min: monthBefore
                     },
                     y: {
                         beginAtZero: true,
                         title: {
                             display: true,
                             text: value
-                        }
+                        },
+                        min: -21,
+                        max: 37
                     }
                 },
                 plugins: {

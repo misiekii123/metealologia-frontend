@@ -24,16 +24,14 @@
 
 <div>
     <p>{data.name}</p>
-    {#if reports == null}
-        <p>Ładowanie...</p>
-        <!-- TODO tu może być pusty chart to będzie fajna animacja wjeżdżania danych-->
-        <!-- TODO powinna być stała wielkość placeholderu i chartu, żeby się nie rozkładało UI-->
-    {:else}
-        {#if data.type === "temperature"}
-            <LineChart value="Temperatura [°C]" reports={reports} />
+    {#if data.type === "temperature"}
+        {#if reports === null}
+            <LineChart value="Temperatura [°C]" reports={[]} range={{min: -21, max: 37}}/>
         {:else}
-            <p>Typ czujnika '{data.type}' nie jest obsługiwany przez stronę.</p>
+            <LineChart value="Temperatura [°C]" reports={reports} range={{min: -21, max: 37}}/>
         {/if}
+    {:else}
+        <p>Typ czujnika '{data.type}' nie jest obsługiwany przez stronę.</p>
     {/if}
 </div>
 
