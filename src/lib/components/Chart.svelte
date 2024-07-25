@@ -1,21 +1,19 @@
 <script lang="ts">
     import chartjs from 'chart.js';
-    import type { SensorProps, chartProps } from "$lib/types";
+    import type { SensorProps, Report } from "$lib/types";
     import { onMount } from "svelte";
 
     export let chartData: SensorProps;
-    export let reports: chartProps;
+    export let reports: Report[];
 
     let ctx;
     let chartCanvas;
 
     onMount(() => {
-        const formattedReports = reports.flatMap(report => {
-            return report.data.temperature.map((value, index) => ({
-                x: new Date(new Date(report.timestamp).getTime() + index * 60000), // Adding index * 60000ms (1 minute)
-                y: value
-            }));
-        });
+        const formattedReports = reports.map(report => ({
+            x: new Date(report.timestamp),
+            y: report.data.value
+        }));
 
         ctx = chartCanvas.getContext("2d");
         new chartjs(ctx, {

@@ -10,11 +10,10 @@ export interface StationProps {
     sensors: SensorProps[]
 }
 
+
 export interface Report {
     timestamp: string;
-    data: {
-        temperature: number[];
-    };
+    data: { value: number };
 }
 
 export interface chartProps extends Array<Report> {}
