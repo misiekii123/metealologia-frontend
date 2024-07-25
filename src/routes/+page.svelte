@@ -1,16 +1,21 @@
 <script>
-	import LineChart from "$lib/components/LineChart.svelte";
-
+	import {version} from "$app/environment"
 	export let data;
 </script>
 
 <svelte:head>
-	<title>Home</title>
+	<title>{import.meta.env.VITE_TITLE}</title>
 </svelte:head>
 
 <section>
-	<h1>{data.title}</h1>
-	<h2>Wersja: {data.version} / Środowisko: {data.environment}</h2>
+	<div>
+		<h1>{import.meta.env.VITE_TITLE}</h1>
+		<h2>Wersja: {version}<br>Środowisko: {import.meta.env.MODE}</h2>
+	</div>
+	<div>
+		<h1>Backend: {data.title}</h1>
+		<h2>Wersja: {data.version}<br>Środowisko: {data.environment}</h2>
+	</div>
 </section>
 
 <style>
@@ -20,5 +25,11 @@
 		justify-content: center;
 		align-items: center;
 		flex: 0.6;
+	}
+	div {
+		margin: 50px;
+	}
+	h1 {
+		font-size: 5em;
 	}
 </style>
