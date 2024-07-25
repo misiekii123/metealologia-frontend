@@ -23,6 +23,11 @@
         border-radius: 25px;
         margin: 10px;
         background-color: var(--color-bg-2);
+        color: var(--color-text-2);
+    }
+
+    div.dark {
+        background-color: var(--color-bg-2-darker);
     }
 
     div {

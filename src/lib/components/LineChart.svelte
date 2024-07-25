@@ -18,7 +18,7 @@
         new Date().getMonth() - 1,
         new Date().getDate()
     ).getTime()
-
+    Chart.defaults.color = "#fff";
     $: {
         if (ctx === null) break $;
         const formattedReports = reports.map(report => ({
@@ -32,25 +32,32 @@
                 datasets: [{
                     label: value,
                     data: formattedReports,
-                    backgroundColor: 'rgba(255,62,0,0.21)',
-                    borderColor: 'rgb(255,62,0)',
-                    borderWidth: 1,
-                    fill: false
-                }]
+                    backgroundColor: '#ffb530',
+                    borderColor: '#ffb530',
+                    borderWidth: 6,
+                    pointBorderWidth: 4,
+                    fill: false,
+                }],
             },
             options: {
                 scales: {
                     x: {
                         type: 'time',
                         time: {
-                            unit: 'day' // Adjust the unit to 'minute', 'hour', 'day', etc., as needed
+                            unit: 'day',
+                            displayFormats: {
+                                day: 'dd.MM'
+                            }
                         },
                         title: {
                             display: true,
                             text: 'Data'
                         },
                         max: now,
-                        min: monthBefore
+                        min: monthBefore,
+                        grid: {
+                            color: '#fff'
+                        }
                     },
                     y: {
                         beginAtZero: true,
@@ -59,7 +66,10 @@
                             text: value
                         },
                         min: range.min,
-                        max: range.max
+                        max: range.max,
+                        grid: {
+                            color: '#fff'
+                        }
                     }
                 },
                 plugins: {
