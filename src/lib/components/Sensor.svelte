@@ -30,7 +30,9 @@
 <div>
     <p>{data.name}</p>
     {#if data.type === "temperature"}
-        <LineChart value="Temperatura [°C]" reports={reports} range={{min: -21, max: 37}}/>
+        <LineChart value="Temperatura [°C]" reports={reports} range={{min: -21, max: 37}} dataType={data.type} fill={false}/>
+    {:else if data.type === "pressure"}
+        <LineChart value="Ciśnienie [hPa]" reports={reports} range={{min: 900, max: 1100}} dataType={data.type} fill={true}/>
     {:else}
         <p>Typ czujnika '{data.type}' nie jest obsługiwany przez stronę.</p>
     {/if}

@@ -4,13 +4,17 @@
     import Chart from 'chart.js/auto';
     import 'chartjs-adapter-date-fns';
 
+
     export let value: string;
     export let reports: SensorReport[];
     export let range: {min: number, max: number};
+    export let dataType: string;
+    export let fill: boolean;
 
     let chartCanvas: HTMLCanvasElement;
     let ctx: CanvasRenderingContext2D | null = null;
     let chart: Chart | null = null;
+    let gradient: CanvasGradient;
 
     const now = Date.now()
     const monthBefore = new Date(
@@ -23,8 +27,13 @@
         if (ctx === null) break $;
         const formattedReports = reports.map(report => ({
             x: new Date(report.timestamp).getTime(),
-            y: report.data.temperature
+            y: report.data[dataType]
         }));
+
+        gradient = ctx.createLinearGradient(0, 0, 0, chartCanvas.height);
+        gradient.addColorStop(0, 'rgba(255, 181, 48, 1)');
+        gradient.addColorStop(1, 'rgba(255, 181, 48, 0)');
+
         if (chart !== null) { chart.destroy() }
         chart = new Chart(ctx, {
             type: 'line',
@@ -32,11 +41,11 @@
                 datasets: [{
                     label: value,
                     data: formattedReports,
-                    backgroundColor: '#ffb530',
+                    backgroundColor: gradient,
                     borderColor: '#ffb530',
                     borderWidth: 6,
                     pointBorderWidth: 4,
-                    fill: false,
+                    fill: fill,
                 }],
             },
             options: {
