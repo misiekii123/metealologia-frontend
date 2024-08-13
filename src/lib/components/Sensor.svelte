@@ -35,6 +35,8 @@
         <LineChart value="Ciśnienie [hPa]" reports={reports} range={{min: 900, max: 1100}} dataType={[data.type]} fill={true} legend={false}/>
     {:else if data.type === "air-polution"}
         <LineChart value="Zanieczyszczenie powietrza [µg/m³]" reports={reports} range={{min: 0, max: 100}} dataType={["pm1.0", "pm2.5", "pm10"]} fill={false} legend={true}/>
+    {:else if data.type === "humidity"}
+        <LineChart value="Wilgotność [%]" reports={reports} range={{min: 0, max: 100}} dataType={[data.type]} fill={false} legend={false}/>
     {:else}
         <p>Typ czujnika '{data.type}' nie jest obsługiwany przez stronę.</p>
     {/if}
