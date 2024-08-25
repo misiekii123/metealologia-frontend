@@ -14,9 +14,6 @@
 			<li aria-current={$page.url.pathname === '/stations' ? 'page' : undefined}>
 				<a href="/stations">Pogoda</a>
 			</li>
-			<li aria-current={$page.url.pathname.startsWith('/airship') ? 'page' : undefined}>
-				<a href="/airship">Sterowiec</a>
-			</li>
 		</ul>
 	</nav>
 	<div class="corner">

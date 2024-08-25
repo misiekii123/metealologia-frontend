@@ -1,6 +1,6 @@
 import {error} from "@sveltejs/kit";
 
-const STATIONS_URL = new URL("/stations", import.meta.env.VITE_BACKEND_ADDRESS).href
+const STATIONS_URL = new URL("stations", import.meta.env.VITE_BACKEND_ADDRESS + import.meta.env.VITE_BACKEND_ADDRESS_PREFIX).href;
 
 export async function load({ fetch }) {
     let response;

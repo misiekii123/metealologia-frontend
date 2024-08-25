@@ -1,6 +1,6 @@
 import {error} from "@sveltejs/kit";
 
-const OVERVIEW_URL = new URL("/", import.meta.env.VITE_BACKEND_ADDRESS).href
+const OVERVIEW_URL = new URL("", import.meta.env.VITE_BACKEND_ADDRESS + import.meta.env.VITE_BACKEND_ADDRESS_PREFIX).href;
 
 export async function load({ fetch }) {
     let response;
