@@ -1,18 +1,20 @@
 FROM node:20-alpine AS builder
 WORKDIR /app
-COPY package*.json .
-RUN rm -rf node_modules package-lock.json
-RUN npm install
-COPY . .
-COPY .env.production .env.production
-RUN npm run build
-RUN npm prune --production
 
-FROM node:20-alpine
+COPY package.json package-lock.json .
+COPY tsconfig.json vite.config.ts svelte.config.js .
+COPY src src/
+COPY static static/
+
+RUN npm ci --omit dev
+
+RUN npm run build
+
+FROM node:20-alpine AS runtime
 WORKDIR /app
-COPY --from=builder /app/.svelte-kit/output/server build/
+COPY --from=builder /app/build build/
 COPY --from=builder /app/node_modules node_modules/
 COPY package.json .
-EXPOSE 3000
-ENV NODE_ENV=production
-CMD [ "node", "build" ]
+ENV PORT=80
+EXPOSE 80
+ENTRYPOINT [ "node", "-r", "dotenv/config", "build" ]

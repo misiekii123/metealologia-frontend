@@ -1,16 +1,15 @@
 <script>
-	import {version} from "$app/environment"
 	export let data;
 </script>
 
 <svelte:head>
-	<title>{import.meta.env.VITE_TITLE}</title>
+	<title>MeteALOlogia</title>
 </svelte:head>
 
 <section>
 	<div>
-		<h1>{import.meta.env.VITE_TITLE}</h1>
-		<h2>Wersja: {version}<br>Środowisko: {import.meta.env.MODE}</h2>
+		<h1>Frontend: {PACKAGE_NAME}</h1>
+		<h2>Wersja: {PACKAGE_VERSION}<br>Środowisko: {import.meta.env.MODE}</h2>
 	</div>
 	<div>
 		<h1>Backend: {data.title}</h1>

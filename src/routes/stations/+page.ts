@@ -1,8 +1,8 @@
-import {error} from "@sveltejs/kit";
-
-const STATIONS_URL = new URL("stations", import.meta.env.VITE_BACKEND_ADDRESS + import.meta.env.VITE_BACKEND_ADDRESS_PREFIX).href;
+import { error } from "@sveltejs/kit";
+import { env } from "$env/dynamic/public"
 
 export async function load({ fetch }) {
+    const STATIONS_URL = new URL("stations", env.PUBLIC_BACKEND_URI).href;
     let response;
     try {
         response = await fetch(STATIONS_URL)
