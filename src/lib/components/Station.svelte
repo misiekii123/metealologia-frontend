@@ -31,17 +31,30 @@
     }
 
     div {
+        @media (min-width: 250px) {
+            min-width: 12rem;
+            padding: 1rem;
+            margin: 5px;
+        }
         @media (min-width: 500px) {
             min-width: 15rem;
+            padding: 2rem;
+            margin: 10px;
         }
         @media (min-width: 1000px) {
             min-width: 20rem;
+            padding: 2rem;
+            margin: 10px;
         }
         @media (min-width: 1500px) {
             min-width: 35rem;
+            padding: 2rem;
+            margin: 10px;
         }
         @media (min-width: 1800px) {
             min-width: 42rem;
+            padding: 2rem;
+            margin: 10px;
         }
     }
 </style>

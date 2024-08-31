@@ -29,6 +29,11 @@
 		margin: 50px;
 	}
 	h1 {
-		font-size: 5em;
+		@media (min-width: 250px) {
+			font-size: 3rem;
+		}
+		@media (min-width: 1000px) {
+			font-size: 4rem;
+		}
 	}
 </style>

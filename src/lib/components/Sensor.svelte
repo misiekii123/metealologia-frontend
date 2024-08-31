@@ -54,17 +54,25 @@
     }
 
     div {
+        @media (min-width: 250px) {
+            min-width: 17rem;
+            padding: 0;
+        }
         @media (min-width: 500px) {
             min-width: 20rem;
+            padding: 2rem;
         }
         @media (min-width: 1000px) {
             min-width: 15rem;
+            padding: 2rem;
         }
         @media (min-width: 1500px) {
             min-width: 25rem;
+            padding: 2rem;
         }
         @media (min-width: 1800px) {
             min-width: 32rem;
+            padding: 2rem;
         }
     }
 </style>
