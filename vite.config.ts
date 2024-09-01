@@ -12,6 +12,6 @@ export default defineConfig({
     plugins: [sveltekit()],
     define: {
         PACKAGE_VERSION: JSON.stringify(pkg.version),
-	PACKAGE_NAME: JSON.stringify(pkg.name)
+	    PACKAGE_NAME: JSON.stringify(pkg.name)
     }
 });

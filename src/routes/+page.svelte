@@ -1,5 +1,7 @@
 <script>
 	export let data;
+	const frontend_name = PACKAGE_NAME;
+	const frontend_version = PACKAGE_VERSION;
 </script>
 
 <svelte:head>
@@ -8,8 +10,8 @@
 
 <section>
 	<div>
-		<h1>Frontend: {PACKAGE_NAME}</h1>
-		<h2>Wersja: {PACKAGE_VERSION}<br>Środowisko: {import.meta.env.MODE}</h2>
+		<h1>Frontend: {frontend_name}</h1>
+		<h2>Wersja: {frontend_version}<br>Środowisko: {import.meta.env.MODE}</h2>
 	</div>
 	<div>
 		<h1>Backend: {data.title}</h1>
