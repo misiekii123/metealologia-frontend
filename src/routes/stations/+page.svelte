@@ -5,6 +5,7 @@
 
     export let data: {stations: StationProps[]};
 
+    // FIXME
 </script>
 
 <svelte:head>
@@ -25,34 +26,10 @@
     }
 
     .cards {
-        max-width: 96%;
-        margin: 0 auto;
-        display: grid;
-        grid-gap: 10rem;
-        border-radius: 25px;
-        padding: 10px;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-
-    .cards:has(> div:only-child) {
-        justify-items: center;
-        align-items: center;
+        margin-top: 20px;
         display: flex;
-        width: 100%;
-    }
-
-
-    @media (min-width: 500px) {
-        .cards {
-            grid-template-columns: repeat(1, 1fr);
-        }
-    }
-
-    @media (min-width: 1000px) {
-        .cards {
-            grid-template-columns: repeat(2, 1fr);
-        }
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
     }
 </style>

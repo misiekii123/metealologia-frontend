@@ -1,6 +1,7 @@
 {
 	"name": "metealologia-frontend",
 	"version": "1.0.0-beta.0",
+	"repository": "https://github.com/misiekii123/metealologia-frontend",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",

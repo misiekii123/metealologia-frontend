@@ -44,35 +44,48 @@
 
 <style>
     div {
-        min-width: 30rem;
+        width: 90%;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
         text-align: center;
         padding: 2rem;
         border-radius: 25px;
+        box-sizing: border-box;
+        background-color: var(--color-bg-2);
+        color: var(--color-text-2);
     }
 
-    div {
-        @media (min-width: 250px) {
-            min-width: 17rem;
-            padding: 0;
-        }
-        @media (min-width: 500px) {
-            min-width: 20rem;
-            padding: 2rem;
-        }
-        @media (min-width: 1000px) {
+    @media (min-width: 250px) {
+        div {
             min-width: 15rem;
-            padding: 2rem;
-        }
-        @media (min-width: 1500px) {
-            min-width: 25rem;
-            padding: 2rem;
-        }
-        @media (min-width: 1800px) {
-            min-width: 32rem;
-            padding: 2rem;
+            padding: 1rem;
         }
     }
+    @media (min-width: 500px) {
+        div {
+            min-width: 18rem;
+            padding: 1rem;
+        }
+    }
+    @media (min-width: 1000px) {
+        div {
+            min-width: 20rem;
+            padding: 1rem;
+        }
+    }
+    @media (min-width: 1500px) {
+        div {
+            min-width: 22rem;
+            padding: 1rem;
+        }
+    }
+    @media (min-width: 1800px) {
+        div {
+            min-width: 24rem;
+            padding: 1rem;
+        }
+    }
+
 </style>

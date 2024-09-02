@@ -1,5 +1,6 @@
-<script>
-	export let data;
+<script lang="ts">
+	export let data: {title: string, version: string, environment: string, repository_url: string};
+	const repository_url = REPOSITORY_URL;
 	const frontend_name = PACKAGE_NAME;
 	const frontend_version = PACKAGE_VERSION;
 </script>
@@ -8,34 +9,45 @@
 	<title>MeteALOlogia</title>
 </svelte:head>
 
-<section>
+
+<div class="main-flexbox">
 	<div>
-		<h1>Frontend: {frontend_name}</h1>
-		<h2>Wersja: {frontend_version}<br>Środowisko: {import.meta.env.MODE}</h2>
+		<h2>Frontend</h2>
+		<h3><a href={repository_url}>{frontend_name}</a><br>v{frontend_version}<span class="environment">/{import.meta.env.MODE}</span></h3>
+		<h2>Backend</h2>
+		<h3><a href={data.repository_url}>{data.title}</a><br>v{data.version}<span class="environment">/{data.environment}</span></h3>
 	</div>
 	<div>
-		<h1>Backend: {data.title}</h1>
-		<h2>Wersja: {data.version}<br>Środowisko: {data.environment}</h2>
+		<h2>Readme coming soon...</h2>
 	</div>
-</section>
+</div>
 
 <style>
-	section {
+	span.environment {
+		color: grey;
+	}
+	.main-flexbox {
+		margin-top: 20px;
 		display: flex;
-		flex-direction: column;
-		justify-content: center;
+		flex-wrap: wrap;
 		align-items: center;
-		flex: 0.6;
+		justify-content: space-around;
 	}
-	div {
-		margin: 50px;
+
+	.main-flexbox > div {
+		margin: 20px;
+		text-align: center;
+		width: 45%;
+		box-sizing: border-box;
+		padding: 2rem;
+		border-radius: 25px;
+		background-color: var(--color-bg-2);
+		color: var(--color-text-2);
 	}
-	h1 {
-		@media (min-width: 250px) {
-			font-size: 3rem;
-		}
-		@media (min-width: 1000px) {
-			font-size: 4rem;
+
+	@media (max-width: 768px) {
+		.main-flexbox > div {
+			width: 90%;
 		}
 	}
 </style>

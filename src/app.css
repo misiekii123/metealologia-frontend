@@ -45,12 +45,12 @@ p {
 }
 
 a {
-	color: var(--color-theme-1);
-	text-decoration: none;
+	color: var(--color-text-2);
+	text-decoration: underline;
 }
 
 a:hover {
-	text-decoration: underline;
+	color: var(--color-theme-2);
 }
 
 h1 {
