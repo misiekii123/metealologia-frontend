@@ -4,7 +4,7 @@
 
 <header>
 	<div class="corner">
-
+		<img src="favicon.svg" alt="meteALOlogia" />
 	</div>
 	<nav>
 		<ul>
@@ -38,6 +38,10 @@
 	.corner {
 		width: 5em;
 		height: auto;
+		align-content: center;
+		display: flex;
+		align-items: center;
+		padding-left: 0.1rem;
 	}
 
 	nav {
@@ -46,8 +50,8 @@
 	}
 
 	img {
-		width: 4em;
-		height: 4em;
+		width: 2.5rem;
+		height: 2.5rem;
 		display: block;
 		box-shadow: white;
 	}

@@ -9,7 +9,7 @@
 	<title>MeteALOlogia</title>
 </svelte:head>
 
-
+<h2 style="margin-top: 4rem">MeteALOlogia</h2>
 <div class="main-flexbox">
 	<div>
 		<h2>Frontend</h2>
