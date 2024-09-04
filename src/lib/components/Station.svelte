@@ -15,7 +15,6 @@
 
 <style>
     div {
-        margin: 20px;
         text-align: center;
         width: 45%;
         box-sizing: border-box;
@@ -23,20 +22,15 @@
         border-radius: 25px;
         background-color: var(--color-bg-2);
         color: var(--color-text-2);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: nowrap;
+        margin: 2rem;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 1000px) {
         div {
-            width: 90%;
+            width: 100%;
+            margin: 0;
+            margin-top: 2rem;
         }
-    }
-
-    div.dark {
-        background-color: var(--color-bg-2-darker);
     }
 
     /*div {*/
@@ -45,23 +39,8 @@
     /*        padding: 1rem;*/
     /*        margin: 5px;*/
     /*    }*/
-    /*    @media (min-width: 500px) {*/
-    /*        min-width: 15rem;*/
-    /*        padding: 2rem;*/
-    /*        margin: 10px;*/
-    /*    }*/
-    /*    @media (min-width: 1000px) {*/
-    /*        min-width: 20rem;*/
-    /*        padding: 2rem;*/
-    /*        margin: 10px;*/
-    /*    }*/
-    /*    @media (min-width: 1500px) {*/
-    /*        min-width: 35rem;*/
-    /*        padding: 2rem;*/
-    /*        margin: 10px;*/
-    /*    }*/
     /*    @media (min-width: 1800px) {*/
-    /*        min-width: 42rem;*/
+    /*        !*flex: 80%;*!*/
     /*        padding: 2rem;*/
     /*        margin: 10px;*/
     /*    }*/

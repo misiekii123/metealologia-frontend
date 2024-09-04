@@ -4,12 +4,10 @@
     import type {StationProps} from "$lib/types";
 
     export let data: {stations: StationProps[]};
-
-    // FIXME
 </script>
 
 <svelte:head>
-    <title>Czujniki</title>
+    <title>Pogoda</title>
 </svelte:head>
 
 <h1>Stacje pogodowe</h1>
@@ -26,10 +24,11 @@
     }
 
     .cards {
-        margin-top: 20px;
         display: flex;
-        flex-wrap: wrap;
         align-items: center;
         justify-content: space-around;
+        flex-wrap: wrap;
+        margin: 1rem;
     }
+
 </style>

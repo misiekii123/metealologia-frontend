@@ -30,6 +30,7 @@
 		overflow: hidden;
 		background-color: var(--color-bg-2);
 		color: var(--color-text-2);
+		box-shadow: 2px 1px 5px #000;
 	}
 	header.dark {
 		background-color: var(--color-bg-2-darker);

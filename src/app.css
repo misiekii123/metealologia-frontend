@@ -13,8 +13,6 @@
 	--color-theme-3: rgba(0, 60, 125, 0.53);
 	--color-text-1: #000;
 	--color-text-2: #fff;
-	--column-width: 42rem;
-	--column-margin-top: 4rem;
 	font-family: var(--font-body);
 }
 
@@ -65,16 +63,6 @@ h2 {
 h3 {
 	font-size: 1.5rem;
 	text-align: center;
-}
-
-
-.text-column {
-	display: flex;
-	max-width: 48rem;
-	flex: 0.6;
-	flex-direction: column;
-	justify-content: center;
-	margin: 0 auto;
 }
 
 input,
