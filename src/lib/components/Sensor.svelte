@@ -2,6 +2,7 @@
     import type {SensorProps, SensorReport} from "$lib/types";
     import {onMount} from "svelte";
     import LineChart from "$lib/components/LineChart.svelte";
+    import {PUBLIC_BACKEND_URI} from "$env/static/public";
 
     export let data: SensorProps;
     export let station: string;
@@ -15,7 +16,7 @@
             new Date().getMonth() - 1,
             new Date().getDate()
         ).getTime()
-        const report_url = new URL(`/stations/${station}/sensors/${data.id}/reports?after=${monthBefore}&before=${now}`, import.meta.env.VITE_BACKEND_ADDRESS).href
+        const report_url = new URL(`/stations/${station}/sensors/${data.id}/reports?after=${monthBefore}&before=${now}`, PUBLIC_BACKEND_URI).href
         const response = await fetch(report_url)
         const reports = await response.json();
         return reports;
