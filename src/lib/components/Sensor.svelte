@@ -11,12 +11,12 @@
 
     async function getReports() {
         const now = Date.now()
-        const monthBefore = new Date(
+        const weekBefore = new Date(
             new Date().getFullYear(),
-            new Date().getMonth() - 1,
-            new Date().getDate()
+            new Date().getMonth(),
+            new Date().getDate() - 7
         ).getTime()
-        const report_url = new URL(`/stations/${station}/sensors/${data.id}/reports?after=${monthBefore}&before=${now}`, PUBLIC_BACKEND_URI).href
+        const report_url = new URL(`/stations/${station}/sensors/${data.id}/reports?after=${weekBefore}&before=${now}`, PUBLIC_BACKEND_URI).href
         const response = await fetch(report_url)
         const reports = await response.json();
         return reports;

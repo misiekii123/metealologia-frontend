@@ -19,10 +19,10 @@
     let datasets: any[] = [];
 
     const now = Date.now()
-    const monthBefore = new Date(
+    const weekBefore = new Date(
         new Date().getFullYear(),
-        new Date().getMonth() - 1,
-        new Date().getDate()
+        new Date().getMonth(),
+        new Date().getDate() - 7
     ).getTime()
     Chart.defaults.color = "#fff";
     $: {
@@ -89,7 +89,7 @@
                             text: 'Data'
                         },
                         max: now,
-                        min: monthBefore,
+                        min: weekBefore,
                         grid: {
                             color: '#fff'
                         }
