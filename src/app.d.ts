@@ -11,6 +11,7 @@ declare global {
 	}
 	const PACKAGE_VERSION: string;
 	const PACKAGE_NAME: string;
+	const REPOSITORY_URL: string;
 }
 
 export {};
