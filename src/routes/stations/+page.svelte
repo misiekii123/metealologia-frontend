@@ -1,9 +1,8 @@
 <script lang="ts">
     import Station from "$lib/components/Station.svelte";
-    import Sensor from "$lib/components/Sensor.svelte";
-    import type {StationProps} from "$lib/types";
+    import type {StationMeta} from "$lib/rest";
 
-    export let data: {stations: StationProps[]};
+    export let data: {stations: StationMeta[]};
 </script>
 
 <svelte:head>

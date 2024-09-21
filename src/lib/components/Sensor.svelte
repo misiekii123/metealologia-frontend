@@ -1,29 +1,20 @@
 <script lang="ts">
-    import type {SensorProps, SensorReport} from "$lib/types";
     import {onMount} from "svelte";
     import LineChart from "$lib/components/LineChart.svelte";
-    import { env } from "$env/dynamic/public";
+    import {fetchReports, type SensorMeta, type SensorReport} from "$lib/rest";
 
-    export let data: SensorProps;
+    export let data: SensorMeta;
     export let station: string;
 
     let reports: SensorReport[] = [];
 
-    async function getReports() {
-        const now = Date.now()
+    onMount(async () => {
         const weekBefore = new Date(
             new Date().getFullYear(),
             new Date().getMonth(),
             new Date().getDate() - 7
-        ).getTime()
-        const report_url = new URL(`/stations/${station}/sensors/${data.id}/reports?after=${weekBefore}&before=${now}`, env.PUBLIC_BACKEND_URI).href
-        const response = await fetch(report_url)
-        const reports = await response.json();
-        return reports;
-    }
-
-    onMount(async () => {
-        reports = await getReports()
+        )
+        reports = await fetchReports(station, data.id, new Date(), weekBefore);
     })
 
 </script>
