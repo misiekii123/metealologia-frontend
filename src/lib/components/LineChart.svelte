@@ -1,8 +1,8 @@
 <script lang="ts">
-    import type { SensorProps, SensorReport } from "$lib/types";
     import { onMount } from "svelte";
     import Chart from 'chart.js/auto';
     import 'chartjs-adapter-date-fns';
+    import type {SensorReport} from "$lib/rest";
 
 
     export let value: string;
