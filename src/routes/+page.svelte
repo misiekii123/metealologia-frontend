@@ -1,8 +1,8 @@
 <script lang="ts">
 	export let data: {title: string, version: string, environment: string, repository_url: string};
-	const repository_url = REPOSITORY_URL;
-	const frontend_name = PACKAGE_NAME;
-	const frontend_version = PACKAGE_VERSION;
+	const repositoryUrl = REPOSITORY_URL;
+	const frontendName = PACKAGE_NAME;
+	const frontendVersion = PACKAGE_VERSION;
 </script>
 
 <svelte:head>
@@ -13,7 +13,7 @@
 <div class="main-flexbox">
 	<div>
 		<h2>Frontend</h2>
-		<h3><a href={repository_url}>{frontend_name}</a><br>v{frontend_version}<span class="environment">/{import.meta.env.MODE}</span></h3>
+		<h3><a href={repositoryUrl}>{frontendName}</a><br>v{frontendVersion}<span class="environment">/{import.meta.env.MODE}</span></h3>
 		<h2>Backend</h2>
 		<h3><a href={data.repository_url}>{data.title}</a><br>v{data.version}<span class="environment">/{data.environment}</span></h3>
 	</div>
