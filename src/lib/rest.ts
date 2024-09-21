@@ -22,6 +22,13 @@ export interface StationMeta {
     sensors: SensorMeta[]
 }
 
+export interface BackendMeta {
+    title: string
+    version: string
+    environment: string
+    repository_url: string
+}
+
 async function wrappedFetch(url: string, fetchFunction: Function) {
     let response;
     try {
@@ -33,7 +40,7 @@ async function wrappedFetch(url: string, fetchFunction: Function) {
     return content;
 }
 
-export async function fetchBackendMeta(fetchFunction: Function = fetch) {
+export async function fetchBackendMeta(fetchFunction: Function = fetch): Promise<BackendMeta> {
     return await wrappedFetch(OVERVIEW_URL, fetchFunction);
 }
 

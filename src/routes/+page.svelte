@@ -1,5 +1,7 @@
 <script lang="ts">
-	export let data: {title: string, version: string, environment: string, repository_url: string};
+	import type {BackendMeta} from "$lib/rest";
+
+	export let data: BackendMeta;
 	const repositoryUrl = REPOSITORY_URL;
 	const frontendName = PACKAGE_NAME;
 	const frontendVersion = PACKAGE_VERSION;
