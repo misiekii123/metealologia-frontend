@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-    <title>Pogoda</title>
+    <title>MeteALOlogia: pogoda</title>
 </svelte:head>
 
 <h1>Stacje pogodowe</h1>
