@@ -2,7 +2,7 @@
 Frontend service of the "MeteALOlogia" project. 
 The project's goal is to sustain a web of weather stations. 
 Measurements will be accessible through this website.
-For now, it's hosted on http://mini0nki.duckdns.org:10200/
+For now, it's hosted on https://mini0nki.duckdns.org:10200/
 
 ## Run locally
 1. Installation
