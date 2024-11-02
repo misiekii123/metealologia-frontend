@@ -29,27 +29,43 @@
 		color: grey;
 	}
 	.main-flexbox {
-		margin-top: 20px;
 		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
 		justify-content: space-around;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 1.5rem;
 	}
 
 	.main-flexbox > div {
-		margin: 20px;
-		text-align: center;
-		width: 45%;
-		box-sizing: border-box;
+		background-color: #fff;
+		border-radius: 10px;
 		padding: 2rem;
-		border-radius: 25px;
-		background-color: var(--color-bg-2);
-		color: var(--color-text-2);
+		width: auto;
+		min-width: 600px;
+		height: 400px;
+		margin: 0.5rem;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+		transition: background-color 0.3s, box-shadow 0.3s;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
 	}
 
 	@media (max-width: 768px) {
 		.main-flexbox > div {
 			width: 90%;
+			min-width: 400px;
+		}
+	}
+
+	@media (prefers-color-scheme: dark) {
+		.main-flexbox > div {
+			background-color: #2c2c2e;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+		}
+		.main-flexbox > div:hover {
+			box-shadow: 0 6px 18px rgba(0, 0, 0, 0.7);
 		}
 	}
 </style>

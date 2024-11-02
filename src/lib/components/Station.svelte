@@ -15,34 +15,36 @@
 
 <style>
     div {
-        text-align: center;
-        width: 45%;
-        box-sizing: border-box;
+        background-color: #fff;
+        border-radius: 10px;
         padding: 2rem;
-        border-radius: 25px;
-        background-color: var(--color-bg-2);
-        color: var(--color-text-2);
-        margin: 2rem;
+        width: auto;
+        min-width: 600px;
+        height: 400px;
+        margin: 0.5rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s, box-shadow 0.3s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
     }
 
     @media (max-width: 1000px) {
         div {
             width: 100%;
-            margin: 0;
-            margin-top: 2rem;
+            margin: 2rem 0 0;
+            min-width: 400px;
         }
     }
 
-    /*div {*/
-    /*    @media (min-width: 250px) {*/
-    /*        min-width: 12rem;*/
-    /*        padding: 1rem;*/
-    /*        margin: 5px;*/
-    /*    }*/
-    /*    @media (min-width: 1800px) {*/
-    /*        !*flex: 80%;*!*/
-    /*        padding: 2rem;*/
-    /*        margin: 10px;*/
-    /*    }*/
-    /*}*/
+    @media (prefers-color-scheme: dark) {
+        div {
+            background-color: #2c2c2e;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+        div:hover {
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.7);
+        }
+    }
 </style>

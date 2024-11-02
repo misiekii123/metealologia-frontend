@@ -2,12 +2,11 @@
     import { onMount } from "svelte";
     import Chart from 'chart.js/auto';
     import 'chartjs-adapter-date-fns';
-    import type {SensorReport} from "$lib/rest";
-
+    import type { SensorReport } from "$lib/rest";
 
     export let value: string;
     export let reports: SensorReport[];
-    export let range: {min: number, max: number};
+    export let range: { min: number, max: number };
     export let dataType: string[];
     export let fill: boolean;
     export let legend: boolean;
@@ -18,18 +17,25 @@
     let gradient: CanvasGradient;
     let datasets: any[] = [];
 
-    const now = Date.now()
+    const now = Date.now();
     const weekBefore = new Date(
         new Date().getFullYear(),
         new Date().getMonth(),
         new Date().getDate() - 7
-    ).getTime()
-    Chart.defaults.color = "#fff";
+    ).getTime();
+
+    function getColors() {
+        const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        return {
+            gridColor: isDarkMode ? "#ffffff" : "#000000", // White grid for dark mode, black for light mode
+            legendColor: isDarkMode ? "#ffffff" : "#000000" // White text for dark mode, black for light mode
+        };
+    }
+
     $: {
         if (ctx === null) break $;
 
         datasets = [];
-
         gradient = ctx.createLinearGradient(0, 0, 0, chartCanvas.height);
         gradient.addColorStop(0, 'rgba(255, 181, 48, 1)');
         gradient.addColorStop(1, 'rgba(255, 181, 48, 0)');
@@ -51,8 +57,7 @@
                     fill: fill,
                 });
             }
-        }
-        else {
+        } else {
             const formattedReports = reports.map(report => ({
                 x: new Date(report.timestamp).getTime(),
                 y: report.data[dataType[0]]
@@ -68,7 +73,8 @@
             });
         }
 
-        if (chart !== null) { chart.destroy() }
+        if (chart !== null) { chart.destroy(); }
+        const colors = getColors();
         chart = new Chart(ctx, {
             type: 'line',
             data: {
@@ -91,7 +97,7 @@
                         max: now,
                         min: weekBefore,
                         grid: {
-                            color: '#fff'
+                            color: colors.gridColor
                         }
                     },
                     y: {
@@ -103,22 +109,42 @@
                         min: range.min,
                         max: range.max,
                         grid: {
-                            color: '#fff'
+                            color: colors.gridColor
                         }
                     }
                 },
                 plugins: {
                     legend: {
-                        display: legend
+                        display: legend,
+                        labels: {
+                            color: colors.legendColor
+                        }
                     }
                 }
             }
         });
     }
+
     onMount(() => {
         ctx = chartCanvas.getContext("2d") as CanvasRenderingContext2D;
-    })
 
+        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+        const updateChartColors = () => {
+            if (chart) {
+                const colors = getColors();
+                chart.options.scales!.x!.grid!.color = colors.gridColor;
+                chart.options.scales!.y!.grid!.color = colors.gridColor;
+                chart.options.plugins!.legend!.labels!.color = colors.legendColor;
+                chart.update();
+            }
+        };
+
+        mediaQuery.addEventListener("change", updateChartColors);
+
+        return () => {
+            mediaQuery.removeEventListener("change", updateChartColors);
+        };
+    });
 </script>
 
 <canvas bind:this={chartCanvas} id="sensorChart"></canvas>

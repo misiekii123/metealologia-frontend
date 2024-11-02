@@ -38,5 +38,14 @@
     div {
         display: block;
         flex-direction: column;
+        min-width: 500px;
+    }
+
+    @media (max-width: 1000px) {
+        div {
+            width: 100%;
+            margin: 2rem 0 0;
+            min-width: 400px;
+        }
     }
 </style>

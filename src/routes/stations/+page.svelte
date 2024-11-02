@@ -6,7 +6,7 @@
 </script>
 
 <svelte:head>
-    <title>MeteALOlogia: pogoda</title>
+    <title>Stacje pogodowe - meteALOlogia</title>
 </svelte:head>
 
 <h1>Stacje pogodowe</h1>
@@ -24,10 +24,9 @@
 
     .cards {
         display: flex;
-        align-items: center;
         justify-content: space-around;
         flex-wrap: wrap;
-        margin: 1rem;
+        gap: 1.5rem;
     }
 
 </style>

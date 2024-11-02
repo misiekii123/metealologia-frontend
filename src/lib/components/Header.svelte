@@ -25,16 +25,14 @@
 		display: flex;
 		justify-content: space-between;
 		width: 100%;
-		top:0;
+		top: 0;
 		position: fixed;
 		overflow: hidden;
-		background-color: var(--color-bg-2);
+		background-color: var(--header-color);
 		color: var(--color-text-2);
 		box-shadow: 2px 1px 5px #000;
 	}
-	header.dark {
-		background-color: var(--color-bg-2-darker);
-	}
+
 	.corner {
 		width: 5em;
 		height: auto;
@@ -53,7 +51,6 @@
 		width: 2.5rem;
 		height: 2.5rem;
 		display: block;
-		box-shadow: white;
 	}
 
 	path {
@@ -87,7 +84,7 @@
 		top: 0;
 		left: calc(50% - var(--size));
 		border: var(--size) solid transparent;
-		border-top: var(--size) solid var(--color-theme-2);
+		border-top: var(--size) solid var(--color-theme-1);
 	}
 
 	li a {
@@ -105,6 +102,6 @@
 	}
 
 	a:hover {
-		color: var(--color-theme-1);
+		color: var(--highliht-color);
 	}
 </style>
