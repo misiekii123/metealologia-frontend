@@ -8,7 +8,6 @@ export interface SensorReport {
 
 export interface SensorMeta {
     id: string
-    name: string
     type: string
 }
 
