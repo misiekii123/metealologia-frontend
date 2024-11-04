@@ -23,6 +23,7 @@ export interface BackendMeta {
     version: string
     environment: string
     repository_url: string
+    readme: string
 }
 
 async function wrappedFetch(url: string, fetchFunction: Function) {
@@ -38,7 +39,9 @@ async function wrappedFetch(url: string, fetchFunction: Function) {
 
 export async function fetchBackendMeta(fetchFunction: Function = fetch): Promise<BackendMeta> {
     const OVERVIEW_URL = new URL("", env.PUBLIC_BACKEND_URI).href;
-    return await wrappedFetch(OVERVIEW_URL, fetchFunction);
+    const README_URL = new URL("", env.PUBLIC_README_URI).href
+    const README = await (await fetchFunction(README_URL)).text();
+    return {...await wrappedFetch(OVERVIEW_URL, fetchFunction), readme: README};
 }
 
 export async function fetchStations(fetchFunction: Function = fetch): Promise<StationMeta> {

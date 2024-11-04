@@ -19,8 +19,8 @@
 		<h2>Backend</h2>
 		<h3><a href={data.repository_url}>{data.title}</a><br>v{data.version}<span class="environment">/{data.environment}</span></h3>
 	</div>
-	<div>
-		<h2>Readme coming soon...</h2>
+	<div class="readme">
+		{@html data.readme}
 	</div>
 </div>
 
@@ -42,7 +42,6 @@
 		padding: 2rem;
 		width: auto;
 		min-width: 600px;
-		height: 400px;
 		margin: 0.5rem;
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 		transition: background-color 0.3s, box-shadow 0.3s;
@@ -50,6 +49,18 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: space-between;
+	}
+
+	.main-flexbox > .readme {
+		padding: 2rem;
+		width: auto;
+		min-width: 600px;
+		margin: 0.5rem;
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+		transition: background-color 0.3s, box-shadow 0.3s;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 
 	@media (max-width: 768px) {

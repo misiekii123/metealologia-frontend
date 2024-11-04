@@ -4,7 +4,7 @@
     import 'chartjs-adapter-date-fns';
     import type { SensorReport } from "$lib/rest";
 
-    export let value: string;
+    export let title: string;
     export let reports: SensorReport[];
     export let range: { min: number, max: number };
     export let dataType: string[];
@@ -27,8 +27,9 @@
     function getColors() {
         const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
         return {
-            gridColor: isDarkMode ? "#ffffff" : "#000000", // White grid for dark mode, black for light mode
-            legendColor: isDarkMode ? "#ffffff" : "#000000" // White text for dark mode, black for light mode
+            gridColor: isDarkMode ? "#ffffff" : "#000000",
+            legendColor: isDarkMode ? "#e4e4e7" : "#000000",
+            valuesColor: isDarkMode ? "#e4e4e7" : "#000000"
         };
     }
 
@@ -41,6 +42,12 @@
         gradient.addColorStop(1, 'rgba(255, 181, 48, 0)');
 
         if (dataType.length > 1) {
+            /* TODO
+            * I have no idea what the fuck is going on here, and I'm absolutely not happy about it
+            * Consider using a foreach loop or something, if there's any hope of turning this shit readable
+            *
+            * Sincerely, your dear backend developer and collaborator */
+
             let colors: any[] = ['#ffa300', '#ffc851', '#ffe0b0'];
             for (let i = 0; i < dataType.length; i++) {
                 const formattedReports = reports.map(report => ({
@@ -63,7 +70,7 @@
                 y: report.data[dataType[0]]
             }));
             datasets.push({
-                label: value,
+                label: title,
                 data: formattedReports,
                 backgroundColor: gradient,
                 borderColor: '#ffb530',
@@ -83,6 +90,9 @@
             options: {
                 scales: {
                     x: {
+                        ticks: {
+                            color: colors.valuesColor,
+                        },
                         type: 'time',
                         time: {
                             unit: 'day',
@@ -92,7 +102,8 @@
                         },
                         title: {
                             display: true,
-                            text: 'Data'
+                            text: 'Data',
+                            color: colors.valuesColor
                         },
                         max: now,
                         min: weekBefore,
@@ -101,10 +112,14 @@
                         }
                     },
                     y: {
+                        ticks: {
+                            color: colors.valuesColor,
+                        },
                         beginAtZero: true,
                         title: {
                             display: true,
-                            text: value
+                            text: title,
+                            color: colors.valuesColor
                         },
                         min: range.min,
                         max: range.max,
@@ -147,4 +162,5 @@
     });
 </script>
 
+<p>{title}</p>
 <canvas bind:this={chartCanvas} id="sensorChart"></canvas>

@@ -20,14 +20,13 @@
         padding: 2rem;
         width: auto;
         min-width: 600px;
-        height: 400px;
         margin: 0.5rem;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         transition: background-color 0.3s, box-shadow 0.3s;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-between;
+        flex-wrap: nowrap;
     }
 
     @media (max-width: 1000px) {
