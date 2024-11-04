@@ -6,14 +6,18 @@
 </script>
 
 <svelte:head>
-    <title>Stacje pogodowe - meteALOlogia</title>
+    <title>Stacje pogodowe - MeteALOlogia</title>
 </svelte:head>
 
 <h1>Stacje pogodowe</h1>
 <div class="cards">
-    {#each data.stations as station}
-        <Station data={station}/>
-    {/each}
+    {#if data.stations.length > 0}
+        {#each data.stations as station}
+            <Station data={station}/>
+        {/each}
+    {:else}
+        <p>Tu jeszcze nic nie ma, ale coś się gotuje. W międzyczasie możesz przeczytać devlog na <a href="/">Stronie Głównej</a>.</p>
+    {/if}
 </div>
 
 <style>
@@ -28,5 +32,4 @@
         flex-wrap: wrap;
         gap: 1.5rem;
     }
-
 </style>
