@@ -1,8 +1,8 @@
 # MeteALOlogia-frontend
-Frontend service of the "MeteALOlogia" project. 
+Frontend service of the "MeteALOlogia" school project, available in Polish. 
 The project's goal is to sustain a web of weather stations. 
 Measurements will be accessible through this website.
-For now, it's hosted on https://mini0nki.duckdns.org:10200/
+For now, it's hosted on https://metealologia.pl:10200/
 
 ## Run locally
 1. Installation
