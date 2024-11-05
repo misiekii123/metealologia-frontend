@@ -4,17 +4,13 @@
 	--font-body: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
 		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	--font-mono: 'Fira Mono', monospace;
-	--color-bg-0: rgb(202, 216, 228);
-	--color-bg-1: #000815;
-	--color-bg-2: #003c7d;
-	--color-bg-2-darker: #002653;
-	--color-theme-1: #006fdd;
-	--color-theme-2: #ffb530;
-	--color-theme-3: rgba(0, 60, 125, 0.53);
-	--color-text-1: #000;
-	--color-text-2: #fff;
-	--column-width: 42rem;
-	--column-margin-top: 4rem;
+	--color-bg-light: #f4f4f9;
+	--color-bg-dark: #1c1c1e;
+	--header-color: #002653;
+	--highliht-color: #006fdd;
+	--color-theme-1: #ffb530;
+	--color-text-1: #333;
+	--color-text-2: #e4e4e7;
 	font-family: var(--font-body);
 }
 
@@ -22,18 +18,10 @@ body {
 	min-height: 100vh;
 	margin: 0;
 	background-attachment: fixed;
-	background-color: var(--color-bg-0);
+	background-color: var(--color-bg-light);
 	background-size: 100vw 100vh;
 	color: var(--color-text-1);
-}
-
-body.dark {
-	min-height: 100vh;
-	margin: 0;
-	background-attachment: fixed;
-	background-color: var(--color-bg-1);
-	background-size: 100vw 100vh;
-	color: var(--color-text-2);
+	transition: background-color 0.3s, color 0.3s;
 }
 
 h1, h2, p, h3 {
@@ -45,12 +33,13 @@ p {
 }
 
 a {
-	color: var(--color-theme-1);
-	text-decoration: none;
+	color: var(--color-text-1);
+	text-decoration: underline;
+	transition: color 0.2s linear;
 }
 
 a:hover {
-	text-decoration: underline;
+	color: var(--highliht-color);
 }
 
 h1 {
@@ -65,16 +54,6 @@ h2 {
 h3 {
 	font-size: 1.5rem;
 	text-align: center;
-}
-
-
-.text-column {
-	display: flex;
-	max-width: 48rem;
-	flex: 0.6;
-	flex-direction: column;
-	justify-content: center;
-	margin: 0 auto;
 }
 
 input,
@@ -97,4 +76,15 @@ button:focus:not(:focus-visible) {
 	position: absolute;
 	width: 1px;
 	white-space: nowrap;
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+		background-color: var(--color-bg-dark);
+		color: var(--color-text-2);
+	}
+
+	a, p, h1, h2, h3, h4 {
+		color: var(--color-text-2);
+	}
 }

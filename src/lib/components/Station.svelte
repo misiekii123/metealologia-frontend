@@ -1,8 +1,8 @@
 <script lang="ts">
     import Sensor from "$lib/components/Sensor.svelte";
-    import type {StationProps} from "$lib/types";
+    import type {StationMeta} from "$lib/rest";
 
-    export let data: StationProps;
+    export let data: StationMeta;
 </script>
 
 <div>
@@ -15,33 +15,35 @@
 
 <style>
     div {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 2rem;
+        width: auto;
+        min-width: 600px;
+        margin: 0.5rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s, box-shadow 0.3s;
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        padding: 2rem;
-        border-radius: 25px;
-        margin: 10px;
-        background-color: var(--color-bg-2);
-        color: var(--color-text-2);
+        align-items: center;
+        flex-wrap: nowrap;
     }
 
-    div.dark {
-        background-color: var(--color-bg-2-darker);
+    @media (max-width: 1000px) {
+        div {
+            width: 100%;
+            margin: 2rem 0 0;
+            min-width: 400px;
+        }
     }
 
-    div {
-        @media (min-width: 500px) {
-            min-width: 15rem;
+    @media (prefers-color-scheme: dark) {
+        div {
+            background-color: #2c2c2e;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
         }
-        @media (min-width: 1000px) {
-            min-width: 20rem;
-        }
-        @media (min-width: 1500px) {
-            min-width: 35rem;
-        }
-        @media (min-width: 1800px) {
-            min-width: 42rem;
+        div:hover {
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.7);
         }
     }
 </style>

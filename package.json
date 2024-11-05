@@ -1,6 +1,7 @@
 {
-	"name": "metealologia-website",
-	"version": "1.0.0-beta.0",
+	"name": "metealologia-frontend",
+	"version": "1.0.0-beta.1",
+	"repository": "https://github.com/misiekii123/metealologia-frontend",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -22,6 +23,7 @@
 	"dependencies": {
 		"@fontsource/fira-mono": "^5.0.14",
 		"@sveltejs/adapter-node": "^5.2.2",
+		"@types/node": "^22.5.2",
 		"chart.js": "^4.4.3",
 		"chartjs-adapter-date-fns": "^3.0.0",
 		"cookie": "^0.6.0",

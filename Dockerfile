@@ -1,12 +1,12 @@
 FROM node:20-alpine AS builder
 WORKDIR /app
 
-COPY package.json package-lock.json .
-COPY tsconfig.json vite.config.ts svelte.config.js .
-COPY src src/
-COPY static static/
-
+COPY package.json package-lock.json ./
+COPY tsconfig.json vite.config.ts svelte.config.js ./
 RUN npm ci --omit dev
+
+COPY static static/
+COPY src src/
 
 RUN npm run build
 
