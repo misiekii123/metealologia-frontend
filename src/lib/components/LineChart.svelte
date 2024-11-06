@@ -88,6 +88,7 @@
                 datasets: datasets
             },
             options: {
+                maintainAspectRatio: false,
                 scales: {
                     x: {
                         ticks: {

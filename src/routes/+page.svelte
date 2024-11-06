@@ -39,9 +39,8 @@
 	.main-flexbox > div {
 		background-color: #fff;
 		border-radius: 10px;
+		width: 30%;
 		padding: 2rem;
-		width: auto;
-		min-width: 600px;
 		margin: 0.5rem;
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 		transition: background-color 0.3s, box-shadow 0.3s;
@@ -52,10 +51,7 @@
 	}
 
 	.main-flexbox > .readme {
-		padding: 2rem;
-		width: auto;
-		min-width: 600px;
-		margin: 0.5rem;
+		width: 50%;
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 		transition: background-color 0.3s, box-shadow 0.3s;
 		display: flex;
@@ -65,8 +61,12 @@
 
 	@media (max-width: 768px) {
 		.main-flexbox > div {
-			width: 90%;
-			min-width: 400px;
+			width: 100%;
+			margin: 0;
+			padding: 1rem;
+		}
+		.main-flexbox > .readme {
+			width: 100%;
 		}
 	}
 

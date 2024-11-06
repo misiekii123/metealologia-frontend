@@ -50,11 +50,6 @@
 	img {
 		width: 2.5rem;
 		height: 2.5rem;
-		display: block;
-	}
-
-	path {
-		fill: var(--background);
 	}
 
 	ul {
@@ -103,5 +98,11 @@
 
 	a:hover {
 		color: var(--highliht-color);
+	}
+
+	@media (max-width: 768px) {
+		li a {
+			font-size: 0.7rem;
+		}
 	}
 </style>

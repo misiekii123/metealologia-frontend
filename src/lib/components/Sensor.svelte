@@ -35,17 +35,13 @@
 
 <style>
     div {
-        display: block;
+        display: flex;
         flex-direction: column;
-        min-width: 500px;
-    }
-
-    @media (max-width: 1000px) {
-        div {
-            width: 100%;
-            margin: 2rem 0 0;
-            min-width: 400px;
-        }
+        flex-wrap: nowrap;
+        width: calc(100% - 3rem);
+        margin-inline: 1.5rem;
+        height: 300px;
+        margin-bottom: 5rem;
     }
 
     .center {
